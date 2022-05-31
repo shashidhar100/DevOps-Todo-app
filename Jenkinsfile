@@ -1,9 +1,11 @@
 pipeline{
     agent any
     stages{
-        stage("git checkout"){
+        stage("Build"){
             steps{
-                echo "first pipeline testing with webhook " 
+                nodejs('Node_16_15_0') {
+                    sh pwd
+                }
                 cleanWs()
             }
         }
