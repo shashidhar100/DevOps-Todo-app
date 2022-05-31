@@ -5,7 +5,7 @@ pipeline{
             steps{
                 nodejs('Node_16_15_0') {
                 }
-                sh pwd
+                cleanWs()
             }
         }
     }
