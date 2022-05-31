@@ -4,8 +4,8 @@ pipeline{
         stage("Build"){
             steps{
                 nodejs('Node_16_15_0') {
-                    sh pwd
                 }
+                sh pwd
                 cleanWs()
             }
         }
