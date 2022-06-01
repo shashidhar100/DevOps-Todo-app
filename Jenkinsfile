@@ -1,11 +1,5 @@
 pipeline{
-    agent {
-        dockerfile{
-            filename 'Dockerfile'
-        }
-        
-         
-    }
+    agent any
     stages{
         stage("Build"){
             steps{
@@ -26,7 +20,7 @@ pipeline{
 
         stage("Build Image"){
             steps{
-                    sh "docker build -t appserver:latest ."
+                    sh "docker build -t appserver ."
             }
         }
 
