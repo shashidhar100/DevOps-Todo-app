@@ -12,7 +12,7 @@ pipeline{
             }
             post{
                 success{
-                    sh "scp /build staging_server@174.129.120.240 'echo hello'"
+                    sh "scp /build staging_server@174.129.120.240"
                 }
             }
         }
