@@ -7,12 +7,12 @@ pipeline{
                     sh "npm install"
                     sh 'npm run build'
                 }
-                archiveArtifacts artifacts: '**/build/', followSymlinks: false
+                archiveArtifacts artifacts: '/build/', followSymlinks: false
                 cleanWs()
             }
             post{
                 success{
-                    sh "ssh staging_server@174.129.120.240 'echo hello'"
+                    sh "scp /build staging_server@174.129.120.240 'echo hello'"
                 }
             }
         }
