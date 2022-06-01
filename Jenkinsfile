@@ -20,7 +20,9 @@ pipeline{
 
         stage("Build Image"){
             steps{
-                    sh "docker build -t appserver ."
+                    script{
+                        dockerImage = docker.build "appserver" + ":$BUILD_NUMBER"
+                    }
             }
         }
 
