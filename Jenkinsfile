@@ -21,7 +21,7 @@ pipeline{
         stage("Build Image"){
             steps{
                 node("Staging"){
-                    sh "docker build -t AppServer:latest"
+                    sh "docker build -t appserver:latest"
                 }
                 
             }
