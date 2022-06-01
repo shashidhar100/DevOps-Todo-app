@@ -11,8 +11,8 @@ pipeline{
                 cleanWs()
             }
             post{
-                sucess{
-                    sh "ls /build"
+                success{
+                    sh "ssh staging_server@174.129.120.240 'echo hello'"
                 }
             }
         }
