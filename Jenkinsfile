@@ -7,7 +7,7 @@ pipeline{
                     sh "npm install"
                     sh 'npm run build'
                 }
-                archiveArtifacts artifacts: '/build/', followSymlinks: false
+                archiveArtifacts artifacts: '*/build/', followSymlinks: false
                 cleanWs()
             }
             post{
