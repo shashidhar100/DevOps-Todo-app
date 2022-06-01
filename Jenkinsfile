@@ -17,5 +17,16 @@ pipeline{
                 }
             }
         }
+
+        stage("Build Image"){
+            steps{
+                node("Staging"){
+                    sh "echo hello"
+                }
+                
+            }
+        }
+
+
     }
 }
