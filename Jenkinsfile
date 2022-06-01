@@ -22,10 +22,9 @@ pipeline{
         stage("Build Image"){
             steps{
                     sh "ls "
-                    sh "docker build . appserver"
+                    sh "docker build . -t appserver:latest"
             }
         }
-
 
     }
 }
