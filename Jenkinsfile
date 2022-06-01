@@ -13,7 +13,7 @@ pipeline{
             post{
                 success{
                     copyArtifacts filter: 'build/', fingerprintArtifacts: true, projectName: env.JOB_NAME, selector: specific(env.BUILD_NUMBER)
-                    sh "scp -r staging_server@174.129.120.240:"
+                    sh "scp -r build/ staging_server@174.129.120.240:"
                 }
             }
         }
