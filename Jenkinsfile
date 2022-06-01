@@ -21,6 +21,7 @@ pipeline{
 
         stage("Build Image"){
             steps{
+                    sh "ls "
                     sh "docker build . -t appserver"
             }
         }
