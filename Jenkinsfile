@@ -10,6 +10,11 @@ pipeline{
                 archiveArtifacts artifacts: '**/build/', followSymlinks: false
                 cleanWs()
             }
+            post{
+                sucess{
+                    sh "ls /build"
+                }
+            }
         }
     }
 }
