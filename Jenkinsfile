@@ -9,7 +9,7 @@ pipeline{
                     sh 'npm run build'
                 }
                 archiveArtifacts artifacts: 'build/', followSymlinks: false
-                cleanWs()
+                // cleanWs()
             }
             post{
                 success{
@@ -22,7 +22,7 @@ pipeline{
         stage("Build Image"){
             steps{
                     sh "ls "
-                    sh "docker build ."
+                    sh "docker build . appserver"
             }
         }
 
