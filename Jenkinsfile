@@ -1,8 +1,5 @@
 pipeline{
-    agent{
-        any
-        dockerfile true
-    } 
+    agent any
 
     stages{
         stage("Build"){
@@ -24,9 +21,7 @@ pipeline{
 
         stage("Build Image"){
             steps{
-                    script{
-                        dockerImage = docker.build "appserver" + ":$BUILD_NUMBER"
-                    }
+                    sh "docker build . -t appserver"
             }
         }
 
