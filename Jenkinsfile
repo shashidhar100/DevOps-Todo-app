@@ -48,7 +48,7 @@ pipeline{
                 label 'staging'
             }
             steps{
-                sh "echo hello"
+                sh "docker stack deploy --compose-file docker-compose.yml appstack"
             }
             
         }
