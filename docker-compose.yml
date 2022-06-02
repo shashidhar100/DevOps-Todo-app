@@ -25,7 +25,7 @@ services:
             - 'node.role==manager'
       ports:
         # Host port : container port
-        - '5000:8080'
+        - '8080:8080'
       volumes:
          # Bind volumne host to container
           - '/var/run/docker.sock:/var/run/docker.sock'
