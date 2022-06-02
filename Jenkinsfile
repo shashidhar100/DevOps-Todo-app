@@ -48,6 +48,7 @@ pipeline{
                 label 'staging'
             }
             steps{
+                sh "sudo docker swarm init"
                 sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
             }
             
