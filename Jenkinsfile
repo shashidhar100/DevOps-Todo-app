@@ -32,7 +32,7 @@ pipeline{
 
         stage("Build Image"){
             when{
-                environment name:'build' value:"success"
+                environment name:'build' value:'success'
             }
             steps{
                     script { 
