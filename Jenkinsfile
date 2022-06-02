@@ -44,10 +44,9 @@ pipeline{
         }
 
         stage("Orchestration"){
+            agent { label 'Staging​' }
             steps{
-                node(Staging){
                 sh "echo hello"
-                }
             }
             
         }
