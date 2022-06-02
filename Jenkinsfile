@@ -44,12 +44,12 @@ pipeline{
         }
 
         stage("Orchestration"){
-            node("staging"){
-                steps{
+            agent{
+                label 'staging'
+            }
+            steps{
                 sh "echo hello"
             }
-            }
-            
             
         }
 
