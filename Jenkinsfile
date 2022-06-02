@@ -44,9 +44,12 @@ pipeline{
         }
 
         stage("Orchestration"){
-            node(Staging){
+            steps{
+                node(Staging){
                 sh "echo hello"
+                }
             }
+            
         }
 
     }
