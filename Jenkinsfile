@@ -32,7 +32,9 @@ pipeline{
 
         stage("Build Image"){
             when{
-                environment name:'build' value:'success'
+                expression{
+                    env.build == "success"
+                }
             }
             steps{
                     script { 
@@ -44,7 +46,9 @@ pipeline{
 
         stage("Publish Image"){
             when{
-                environment name:'build' value:"success"
+                expression{
+                    env.build == "success"
+                }
             }
             steps{
                 script { 
@@ -61,7 +65,9 @@ pipeline{
                 label 'staging'
             }
             when{
-                environment name:'build' value:"success"
+                expression{
+                    env.build == "success"
+                }
             }
             steps{
                 // sh "sudo docker swarm init"
