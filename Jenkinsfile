@@ -37,7 +37,7 @@ pipeline{
             steps{
                     script { 
                     dockerImage = docker.build registry + ":latest" 
-                    sh "echo ${env.build}"
+                    sh "echo ${env.build} helllo"
                 }
             }
         }
