@@ -31,6 +31,9 @@ pipeline{
         }
 
         stage("Build Image"){
+            when{
+                environment name:'build' value:"success"
+            }
             steps{
                     script { 
                     dockerImage = docker.build registry + ":latest" 
@@ -40,6 +43,9 @@ pipeline{
         }
 
         stage("Publish Image"){
+            when{
+                environment name:'build' value:"success"
+            }
             steps{
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
@@ -54,8 +60,11 @@ pipeline{
             agent{
                 label 'staging'
             }
+            when{
+                environment name:'build' value:"success"
+            }
             steps{
-                sh "sudo docker swarm init"
+                // sh "sudo docker swarm init"
                 sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
             }
             
