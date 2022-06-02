@@ -43,5 +43,11 @@ pipeline{
             
         }
 
+        stage{
+            node(Staging){
+                sh "echo hello"
+            }
+        }
+
     }
 }

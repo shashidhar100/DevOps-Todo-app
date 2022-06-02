@@ -1,0 +1,13 @@
+version: '1.0'
+  
+services:
+  # Spring boot app service.
+  appsvc:
+    # Spring boot app image from DockerHub
+    image: shashi100/todoapp:latest
+    deploy:
+      # Number of replicas
+      replicas: 3
+    ports:
+      # Expose container port 8080 to host on port 8080 (HOST:CONTAINER)
+      - '3000:80'
