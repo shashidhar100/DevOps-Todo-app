@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                cleanWs()
+                // cleanWs()
                 nodejs('Node_16_15_0') {
                     sh "npm install"
                     sh 'npm run build'
