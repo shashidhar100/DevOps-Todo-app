@@ -18,8 +18,8 @@ pipeline{
             }
             post{
                 success{
-                    copyArtifacts filter: 'build/', fingerprintArtifacts: true, projectName: env.JOB_NAME, selector: specific(env.BUILD_NUMBER)
-                    sh "scp -r build/ staging_server@3.228.80.13:"
+                    // copyArtifacts filter: 'build/', fingerprintArtifacts: true, projectName: env.JOB_NAME, selector: specific(env.BUILD_NUMBER)
+                    // sh "scp -r build/ staging_server@3.228.80.13:"
                     stages{
                         stage("Build Image"){
                                         steps{
