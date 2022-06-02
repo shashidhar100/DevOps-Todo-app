@@ -11,3 +11,21 @@ services:
     ports:
       # Expose container port 8080 to host on port 8080 (HOST:CONTAINER)
       - '3000:80'
+# Open source docker-swarm-visualizer service
+  visualizersvc:
+      # Image of docker-swarm-visualizer app
+      image: dockersamples/visualizer
+      # This service will run only when appsvc has no failure
+      depends_on:
+        - appsvc
+      deploy:
+        placement:
+          # We want to deploy this service only in manager node (suppose we have only one)
+          constraints:
+            - 'node.role==manager'
+      ports:
+        # Host port : container port
+        - '5000:8080'
+      volumes:
+         # Bind volumne host to container
+          - '/var/run/docker.sock:/var/run/docker.sock'
