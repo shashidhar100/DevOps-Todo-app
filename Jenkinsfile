@@ -1,13 +1,9 @@
 pipeline{
     agent any
     environment { 
-3
         registry = "shashi100/todoapp" 
-4
         registryCredential = 'dockerhub_id' 
-5
         dockerImage = '' 
-6
     }
 
     stages{
