@@ -10,6 +10,18 @@ pipeline{
 
     stages{
 
+        stage("Sonarcube Analysis"){
+            steps{
+                nodejs('Node_16_15_0'){
+                    sh "npm install"
+                    withSonarQubeEnv("sonar"){
+                        sh "npm install sonar-scanner"
+                        sh "npm run sonar"
+                    }
+                }
+            }
+        }
+
         stage("Build"){
             steps{
                 // cleanWs()

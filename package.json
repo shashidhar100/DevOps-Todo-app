@@ -18,8 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sonar": "ts-node sonar-scanner.ts"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -40,7 +39,6 @@
     ]
   },
   "devDependencies": {
-    "sonarqube-scanner": "^2.8.1",
-    "ts-node": "^10.8.0"
+    "sonarqube-scanner": "^2.8.1"
   }
 }
