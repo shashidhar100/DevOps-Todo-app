@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "sonarqube-scanner": "^2.8.1",
-    "ts-node": "^10.8.0",
-    "typescript": "^2.3.4"
+    "ts-node": "^10.8.0"
   }
 }

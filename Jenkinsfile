@@ -13,11 +13,13 @@ pipeline{
         stage("Sonarqube analysis"){
             steps{
                 withSonarQubeEnv("SonarQube"){
-                    nodejs('Node_16_15_0'){
-                        sh "npm install"
-                        sh "npm run sonar"
-
-                    }
+                   sh "/bin/sonar.sh \
+                   -Dsonar.host.url=http://3.221.209.108:3000 \
+                   -Dsonar.login=5b8455920c6758fccb77ab829839bafdc12e427e \
+                    -Dsonar.projectKey=todoapp \
+                   -Dsonar.projectName=todoapp \
+                   -D sonar.sources=./src \
+                   "
                     
                 }
             }
