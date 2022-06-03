@@ -14,6 +14,7 @@ pipeline{
             steps{
                 withSonarQubeEnv("SonarQube"){
                     nodejs('Node_16_15_0'){
+                        sh "npm install -g ts-node"
                         sh "npm install"
                         sh "npm run sonar"
 
