@@ -76,7 +76,7 @@ export default function CreateForm(props) {
 
           <Row className="justify-content-center my-4">
             <Form.Group className="col-md-2 col-md-offset-3 align-center">
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" title="submitButton">
                 Create Task
               </Button>
             </Form.Group>
