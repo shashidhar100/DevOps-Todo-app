@@ -3,8 +3,19 @@ import './App.css';
 import CreateForm from './From';
 import TaskList from './TaskList';
 import { useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
 
 
+function Header() {
+  return <Container>
+    <Row className='col-md-2 col-md-offset-8 align-center'>
+    <h1>
+To Do
+</h1>
+    </Row>
+    
+  </Container>
+}
 
 function App() {
 
@@ -23,7 +34,7 @@ function App() {
 
 
   return (
-    <><CreateForm updateTaskList={updateTaskList} /><TaskList taskList={taskList} handleDelete={deleteTask} /></>
+    <><Header/><CreateForm updateTaskList={updateTaskList} /><TaskList taskList={taskList} handleDelete={deleteTask} /></>
     
   );
 }
