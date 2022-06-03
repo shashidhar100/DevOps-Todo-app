@@ -71,7 +71,7 @@ pipeline{
             
         }
 
-        stage("Orchestration"){
+        stage("Deploy on Staging Server"){
             agent{
                 label 'staging'
             }
