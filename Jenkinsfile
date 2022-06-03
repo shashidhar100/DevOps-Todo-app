@@ -22,7 +22,7 @@ pipeline{
             }
         }
 
-        stage("Build"){
+        stage("Build Project"){
             steps{
                 // cleanWs()
                 nodejs('Node_16_15_0') {
@@ -41,7 +41,7 @@ pipeline{
             }
         }
 
-        stage("Build Image"){
+        stage("Build Docker Image"){
             when{
                 expression{
                     env.build == "success"
@@ -55,7 +55,7 @@ pipeline{
             }
         }
 
-        stage("Publish Image"){
+        stage("Publish Image on Dockerhub"){
             when{
                 expression{
                     env.build == "success"
@@ -85,6 +85,22 @@ pipeline{
                 sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
             }
             
+        }
+
+        stage("Deploy on the Production Server"){
+            agent{
+                label "prod"
+            }
+            when{
+                expression{
+                    env.build == "success"
+                }
+            }
+            steps{
+                // sh "sudo docker swarm init"
+                sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
+            }
+
         }
 
     }
