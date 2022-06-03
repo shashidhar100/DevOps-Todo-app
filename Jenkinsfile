@@ -13,8 +13,12 @@ pipeline{
         stage("Sonarqube analysis"){
             steps{
                 withSonarQubeEnv("SonarQube"){
-                    sh "npm install"
-                    sh "npm run sonar"
+                    nodejs('Node_16_15_0'){
+                        sh "npm install"
+                        sh "npm run sonar"
+
+                    }
+                    
                 }
             }
         }
