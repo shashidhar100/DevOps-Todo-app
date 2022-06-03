@@ -10,27 +10,6 @@ pipeline{
 
     stages{
 
-        stage("Sonarqube analysis"){
-            steps{
-                withSonarQubeEnv("SonarQube"){
-                   sh "/bin/sonar.sh \
-                   -Dsonar.host.url=http://3.221.209.108:3000 \
-                   -Dsonar.login=5b8455920c6758fccb77ab829839bafdc12e427e \
-                    -Dsonar.projectKey=todoapp \
-                   -Dsonar.projectName=todoapp \
-                   -D sonar.sources=./src \
-                   "
-                    
-                }
-            }
-        }
-
-        stage("Quality gate"){
-            steps{
-                waitForQualityGate abortPipeline: true
-            }
-        }
-
         stage("Build"){
             steps{
                 // cleanWs()
