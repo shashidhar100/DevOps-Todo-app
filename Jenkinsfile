@@ -100,8 +100,9 @@ pipeline{
             }
             steps{
                 sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
+                cleanWs()
             }
-            cleanWs()
+            
 
         }
 
