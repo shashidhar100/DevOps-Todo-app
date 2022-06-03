@@ -96,6 +96,9 @@ pipeline{
                     env.build == "success"
                 }
             }
+            input{
+                message "Do you want to proceed for production deployment?"
+            }
             steps{
                 // sh "sudo docker swarm init"
                 sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
