@@ -9,6 +9,21 @@ pipeline{
     }
 
     stages{
+
+        stage("Sonarqube analysis"){
+            steps{
+                withSonarQubeEnv("SonarQube"){
+                    sh "./gradlew sonarqube"
+                }
+            }
+        }
+
+        stage("Quality gate"){
+            steps{
+                waitForQualityGate abortPipeline: true
+            }
+        }
+
         stage("Build"){
             steps{
                 // cleanWs()
