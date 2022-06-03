@@ -22,10 +22,11 @@ pipeline{
             }
         }
 
-        stage("Build Project"){
+        stage("Test and Build Project"){
             steps{
                 nodejs('Node_16_15_0') {
                     sh "npm install"
+                    sh "CI=true npm test"
                     sh 'npm run build'
                 }
                 archiveArtifacts artifacts: 'build/', followSymlinks: false
