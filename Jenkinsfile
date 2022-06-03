@@ -24,7 +24,6 @@ pipeline{
 
         stage("Build Project"){
             steps{
-                // cleanWs()
                 nodejs('Node_16_15_0') {
                     sh "npm install"
                     sh 'npm run build'
@@ -81,7 +80,6 @@ pipeline{
                 }
             }
             steps{
-                // sh "sudo docker swarm init"
                 sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
             }
             
@@ -100,9 +98,9 @@ pipeline{
                 message "Do you want to proceed for production deployment?"
             }
             steps{
-                // sh "sudo docker swarm init"
                 sh "sudo docker stack deploy --compose-file docker-compose.yml appstack"
             }
+            cleanWs()
 
         }
 
