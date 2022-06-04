@@ -10,7 +10,7 @@ function Header() {
   return <Container>
     <Row className='col-md-2 col-md-offset-8 align-center'>
     <h1>
-To Do APP for Demo
+To Do 
 </h1>
     </Row>
     
